@@ -10,21 +10,25 @@
       integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
       crossorigin="anonymous"
     />
+    <script src="../assets/style/style.css"></script>
   </head>
   <body>
-    <nav>
+    <nav class="navbar">
       <a href="./jeux.html">Jeux</a>
       <a href="./inscription.html">Inscription</a>
       <a href="./connexion.html">Se connecter</a>
       <div id="compte">
         <a href="./compte.html"
-          ><img src="../assets/ressources/logo_user.png" alt="logo utilisateur"
+          ><img
+            src="../assets/ressources/logo_user.png"
+            class="rounded float-end"
+            alt="logo utilisateur"
         /></a>
       </div>
     </nav>
     <h1>Bienvenue sur le site Memory de l'ENI</h1>
     <section class="descriptionDuSite">
-      <p>Ici, vnez vous détedre grâce à un magnifique jeux de mémory.</p>
+      <p>Ici, venez vous détendre grâce à un magnifique jeux de mémory.</p>
       <p>
         Inscrivez vous pour sauvegarder vos scores, et essayez de les battre
         ensuite !
@@ -35,12 +39,12 @@
       <p>
         Toutes les cartes sont retournées, face caché. Votre but est de
         constituer des paires en retournant deux cartes. Si vous trouvez deux
-        cartes identiques, celles-ci restent visible. Sinon, elles se
+        cartes identiques, celles-ci restent visibles. Sinon, elles se
         retrouveront de nouveau cachées. Assurez vous de vous souvenir de la
         position des cartes.
       </p>
 
-      <table class="memory">
+      <table class="table table-hover">
         <tr>
           <td id="0">
             <img src="/assets/ressources/memory-legume/1.svg" alt="" />

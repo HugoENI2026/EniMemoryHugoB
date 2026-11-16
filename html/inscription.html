@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../assets/style/style.css" />
   </head>
   <body>
+    <h1>ENI Memory</h1>
     <nav class="nav nav-pills nav-fill">
       <a class="nav-link" href="./index.html">Accueil</a>
       <a class="nav-link" href="./jeux.html">Jeux</a>
@@ -26,40 +27,71 @@
       <fieldset>
         <form>
           <div class="mb-3">
-            <label for="pseudo" class="form-label">Entrez votre pseudo</label>
-            <input
-              type="text"
-              class="form-control"
-              id="pseudo"
-              aria-describedby="userNameHelp"
-              autofocus
-            />
-            <div id="userNameHelp" class="form-text">Votre pseudo</div>
+            <div class="subscribeInput">
+              <label for="pseudo" class="form-label"
+                >Pseudo <span class="obligatoire">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="pseudo"
+                aria-describedby="userNameHelp"
+                autofocus
+                required
+              />
+              <div id="userNameHelp" class="form-text">
+                Minimum 3 caractères
+              </div>
+            </div>
+            <div class="subscribeInput">
+              <label for="email" class="form-label"
+                >Adresse Email <span class="obligatoire">*</span></label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                aria-describedby="emailHelp"
+                required
+              />
+              <div id="emailHelp" class="form-text">
+                L'Email ne sera pas partagé avec des tiers
+              </div>
+            </div>
+            <div class="subscribeInput">
+              <label for="InputPassword" class="form-label"
+                >Mot de passe <span class="obligatoire">*</span>
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="InputPassword"
+                required
+              />
+              <div id="pwHelp" class="form-text">
+                Au moins un symbole, un chiffre, et une lettre en majuscule.
+              </div>
+            </div>
 
-            <label for="email" class="form-label">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              aria-describedby="emailHelp"
-            />
-            <div id="emailHelp" class="form-text">
-              L'Email ne sera pas partagé avec des tiers
+            <div class="subscribeInput">
+              <label for="verifInputPassword" class="form-label"
+                >Vérifier mot de passe <span class="obligatoire">*</span>
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="verifInputPassword"
+                required
+              />
+              <div id="verifPwHelp" class="form-text">
+                Retapez votre mot passe afin de le vérifier
+              </div>
             </div>
           </div>
-
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label"
-              >Mot de passe
-            </label>
-
-            <input type="password" class="form-control" id="InputPassword" />
-            <div id="pwHelp" class="form-text">
-              Au moins un symbole, un chiffre, et une lettre en majuscule.
-            </div>
+          <p class="obligatoire champOblig">* Champs obligatoires</p>
+          <div class="subscribeInput">
+            <button type="submit" class="btn btn-primary">Soumettre</button>
           </div>
-
-          <button type="submit" class="btn btn-primary">Soumettre</button>
         </form>
       </fieldset>
     </section>

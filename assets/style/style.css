@@ -111,3 +111,7 @@ a {
 .active {
   background-color: #7F7D9C !important;
 }
+
+.form-text {
+  color: lightgrey !important;
+}

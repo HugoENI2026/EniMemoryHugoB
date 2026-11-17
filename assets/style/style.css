@@ -1,18 +1,14 @@
 @font-face {
-  font-family: 'orange Juice';
-  src: local('orange Juice'),
-    url(../fonts/orangeJuice.ttf);
+  font-family: "orange Juice";
+  src: local("orange Juice"), url(../fonts/orangeJuice.ttf);
   font-weight: 400;
-
 }
-
 
 body {
   margin: 1vw;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
   color: aliceblue;
-
 }
 
 fieldset {
@@ -40,7 +36,6 @@ fieldset {
   margin-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
-
 }
 
 nav {
@@ -69,7 +64,7 @@ nav {
 
 h1 {
   font-size: 5em;
-  font-family: 'orange Juice';
+  font-family: "orange Juice";
   display: flex;
   justify-content: center;
 }
@@ -83,7 +78,7 @@ h2 {
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-family: 'orange Juice';
+  font-family: "orange Juice";
   font-size: 3em;
 }
 
@@ -103,21 +98,48 @@ h2 {
   font-size: x-large;
 }
 
-a {
-  text-decoration: none;
-  color: aliceblue !important;
-
+.nav {
+  --bs-nav-link-color: aliceblue;
+  --bs-nav-link-hover-color: black;
 }
 
-a:hover {
+nav.nav.nav-pills.nav-justified .nav-link:hover {
   background-color: #c9c8dc;
-  color: #0f0c29 !important;
 }
-
-.active {
-  background-color: #7F7D9C !important;
+.nav-pills {
+  --bs-nav-pills-link-active-bg: #7f7d9c;
 }
 
 .form-text {
-  color: lightgrey !important;
+  color: lightgrey;
+}
+
+.question {
+  padding: 10px;
+  height: 14vh;
+  width: 14vw;
+}
+.tableGame {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+}
+#pseudo,
+#email {
+  margin-top: -10px;
+  border: aliceblue solid 0.5px;
+  border-radius: 5px;
+  width: 10vw;
+  height: 3vh;
+  background-color: aliceblue;
+}
+.compte {
+  margin: 20px;
+  position: relative;
+}
+.countField {
+  height: 350px;
+}
+.imgUser {
+  margin-top: 20px;
 }

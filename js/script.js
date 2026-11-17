@@ -32,7 +32,10 @@ for (let i = 0; i <= 11; i++) {
 }*/
 
 //variable compteur de cartes retournée
-let count = 0;
+
+//creer un tableau des cartes selectionées
+const returnTabs = [];
+const tabImagesFound = [];
 
 //ajouter évènement sur toute les cartes
 for (const image of tabImagesQuestion) {
@@ -40,13 +43,43 @@ for (const image of tabImagesQuestion) {
 }
 
 function turnImage() {
-  console.log("ok click");
   let imgId = this.getAttribute("id");
-  console.log(imgId);
-  this.setAttribute(
-    "src",
-    `../assets/ressources/memory-legume/${tabImages[Number(imgId)]}.svg`,
-  );
+
+  // condition pour continuer de retourner des cartes
+  if (returnTabs.length < 2 && this.src.includes("question")) {
+    this.setAttribute(
+      "src",
+      `../assets/ressources/memory-legume/${tabImages[Number(imgId)]}.svg`,
+    );
+    //ajout de l'émément dans mon tableau d'élément retourné
+    returnTabs.push(this.getAttribute("id"));
+  }
+
+  //condition pour vérifier si les deux images sont les mêmes
+  if (returnTabs.length === 2) {
+    if (
+      document.getElementById(`${returnTabs[0]}`).src ===
+      document.getElementById(`${returnTabs[1]}`).src
+    ) {
+      returnTabs.length = 0;
+    }
+
+    //condition pour retourner les images si elles sont différentes
+    if (
+      returnTabs.length === 2 &&
+      document.getElementById(`${returnTabs[0]}`).src !==
+        document.getElementById(`${returnTabs[1]}`).src
+    ) {
+      //lancer un chrono avant de retourner les cartes selectionées
+      setTimeout(() => {
+        for (let i = 0; i <= 1; i++) {
+          document.getElementById(`${returnTabs[i]}`).src =
+            "../assets/ressources/question.svg";
+        }
+        returnTabs.length = 0;
+      }, 1500);
+    }
+  }
 }
 
 // Algorithme de Fisher-Yates

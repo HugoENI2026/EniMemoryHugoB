@@ -1,3 +1,5 @@
+//-----------------------------------------------------------------------------------------------------------
+
 const tabImagesQuestion = [];
 const tabImages = [1, 2, 3, 4, 5, 6];
 
@@ -8,9 +10,19 @@ tabImages.push(...tabImages);
 for (let i = 0; i <= 11; i++) {
   tabImagesQuestion.push(document.getElementById(`${i}`));
 }
-
+//----------------------------------------------------------------------------
 //mélanger le tableau d'images
 shuffle(tabImages);
+
+// Algorithme de Fisher-Yates
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+//----------------------------------------------------------------------------
 
 //creer un tableau des cartes selectionées
 const returnTabs = [];
@@ -18,16 +30,36 @@ const returnTabs = [];
 //tableau de toute les cartes trouvées
 const tabImagesFound = [];
 
+//-----------------------------------------------------------------------------------------------------------
+function initGame() {
+  shuffle(tabImages);
+  returnTabs.length = 0;
+  tabImagesFound.length = 0;
+  for (let i = 0; i <= 11; i++) {
+    document.getElementById(`${i}`).setAttribute("src", "../assets/ressources/question.svg")
+  }
+  document.getElementById("tableGame").style.display = "flex";
+  document.getElementById("victory").style.display = "none";
+  document.getElementById("startButton").style.display = "none";
+  document.getElementById("playTitle").style.display = "flex";
+  document.getElementById("rick").style.display = "none";
+}
+
+const resetButton = document.getElementById("resetButton");
+resetButton.addEventListener("click", initGame)
+
+//-----------------------------------------------------------------------------------------------------------
 //ajouter évènement sur toute les cartes
 for (const image of tabImagesQuestion) {
   image.addEventListener("click", turnImage);
 }
-
+//-----------------------------------
 function turnImage() {
   let imgId = this.getAttribute("id");
   if (returnTabs.length === 2) {
     return;
   }
+  //-----------------------------------------------------------
   // condition pour continuer de retourner des cartes
   if (returnTabs.length < 2 && this.src.includes("question")) {
     this.setAttribute(
@@ -37,9 +69,9 @@ function turnImage() {
     //ajout de l'émément dans mon tableau d'élément retourné
     returnTabs.push(this.getAttribute("id"));
   }
-
-  //condition pour vérifier si les deux images sont les mêmes
+  //---------------------------------------------------------
   if (returnTabs.length === 2) {
+    //condition pour vérifier si les deux images sont les mêmes
     if (
       document.getElementById(`${returnTabs[0]}`).src ===
       document.getElementById(`${returnTabs[1]}`).src
@@ -49,12 +81,11 @@ function turnImage() {
       }
       returnTabs.length = 0;
     }
-
     //condition pour retourner les images si elles sont différentes
     if (
       returnTabs.length === 2 &&
       document.getElementById(`${returnTabs[0]}`).src !==
-        document.getElementById(`${returnTabs[1]}`).src
+      document.getElementById(`${returnTabs[1]}`).src
     ) {
       //lancer un chrono avant de retourner les cartes selectionées
       setTimeout(() => {
@@ -65,21 +96,18 @@ function turnImage() {
         returnTabs.length = 0;
       }, 1000);
     }
+    //--------------------------------------------------
+
     if (tabImagesFound.length === tabImages.length) {
       document.getElementById("tableGame").style.display = "none";
       document.getElementById("victory").style.display = "flex";
-      document.getElementById("startButton").style.display = "flex";
+      document.getElementById("resetButton").style.display = "flex";
       document.getElementById("playTitle").style.display = "none";
       document.getElementById("rick").style.display = "flex";
     }
   }
 }
 
-// Algorithme de Fisher-Yates
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+
+
+

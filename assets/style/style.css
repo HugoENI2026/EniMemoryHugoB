@@ -76,7 +76,7 @@ h1 {
 h2 {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
   font-family: "orange Juice";
   font-size: 3em;
@@ -119,8 +119,8 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   height: 14vh;
   width: 14vw;
 }
-.tableGame {
-  margin-top: 10vh;
+#tableGame {
+  margin-top: 6vh;
   display: flex;
   justify-content: center;
 }
@@ -142,4 +142,30 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
 }
 .imgUser {
   margin-top: 20px;
+}
+
+#victory {
+  padding: 20px;
+  display: none;
+  color: goldenrod;
+  font-size: 10em;
+  border: goldenrod solid 5px;
+  border-radius: 15px;
+}
+#startButton {
+  display: none;
+  background-color: #7f7d9c;
+  color: aliceblue;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+#startButton:hover {
+  box-shadow: 0px 0px 10px #c9c8dc;
+}
+#linkStartButton {
+  text-decoration: none;
+}
+#rick {
+  margin-top: -20px;
+  display: none;
 }

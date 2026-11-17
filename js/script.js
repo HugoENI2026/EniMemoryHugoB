@@ -1,16 +1,3 @@
-const image0 = document.getElementById("0");
-const image1 = document.getElementById("1");
-const image2 = document.getElementById("2");
-const image3 = document.getElementById("3");
-const image4 = document.getElementById("4");
-const image5 = document.getElementById("5");
-const image6 = document.getElementById("6");
-const image7 = document.getElementById("7");
-const image8 = document.getElementById("8");
-const image9 = document.getElementById("9");
-const image10 = document.getElementById("10");
-const image11 = document.getElementById("11");
-
 const tabImagesQuestion = [];
 const tabImages = [1, 2, 3, 4, 5, 6];
 
@@ -25,16 +12,10 @@ for (let i = 0; i <= 11; i++) {
 //mélanger le tableau d'images
 shuffle(tabImages);
 
-/*
-for (let i = 0; i <= 11; i++) {
-  tabImagesQuestion[i].src =
-    `../assets/ressources/memory-legume/${tabImages[i]}.svg`;
-}*/
-
-//variable compteur de cartes retournée
-
 //creer un tableau des cartes selectionées
 const returnTabs = [];
+
+//tableau de toute les cartes trouvées
 const tabImagesFound = [];
 
 //ajouter évènement sur toute les cartes
@@ -44,7 +25,9 @@ for (const image of tabImagesQuestion) {
 
 function turnImage() {
   let imgId = this.getAttribute("id");
-
+  if (returnTabs.length === 2) {
+    return;
+  }
   // condition pour continuer de retourner des cartes
   if (returnTabs.length < 2 && this.src.includes("question")) {
     this.setAttribute(
@@ -61,6 +44,9 @@ function turnImage() {
       document.getElementById(`${returnTabs[0]}`).src ===
       document.getElementById(`${returnTabs[1]}`).src
     ) {
+      for (let i = 0; i <= 1; i++) {
+        tabImagesFound.push(returnTabs[i]);
+      }
       returnTabs.length = 0;
     }
 
@@ -77,7 +63,14 @@ function turnImage() {
             "../assets/ressources/question.svg";
         }
         returnTabs.length = 0;
-      }, 1500);
+      }, 1000);
+    }
+    if (tabImagesFound.length === tabImages.length) {
+      document.getElementById("tableGame").style.display = "none";
+      document.getElementById("victory").style.display = "flex";
+      document.getElementById("startButton").style.display = "flex";
+      document.getElementById("playTitle").style.display = "none";
+      document.getElementById("rick").style.display = "flex";
     }
   }
 }

@@ -6,11 +6,57 @@ const tabImages = [1, 2, 3, 4, 5, 6];
 //dupliquer le tableau
 tabImages.push(...tabImages);
 
-//charger les images interrogations dans un tableau
-for (let i = 0; i <= 11; i++) {
-  tabImagesQuestion.push(document.getElementById(`${i}`));
-}
 //----------------------------------------------------------------------------
+initMemoryTable(3, 4)
+
+
+//----------------------------------------------------------------------------
+// TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
+function initMemoryTable(line, column) {
+  const section = document.createElement("section");
+  section.id = "tableGame"
+  document.getElementById("section").appendChild(section)
+
+  const table = document.createElement("table")
+  section.appendChild(table)
+
+
+  let id = 0;
+  for (let i = 0; i < line; i++) {
+    const tr = document.createElement("tr");
+    table.appendChild(tr)
+
+    for (let j = 0; j < column; j++) {
+      const index = id;
+      id++
+      setTimeout(() => {
+        const td = document.createElement("td");
+        const img = document.createElement("img");
+
+        img.className = "question";
+        img.src = "../assets/ressources/question.svg";
+        img.id = String(index);
+
+        tr.appendChild(td)
+        td.appendChild(img)
+      }, 50 * index)
+    }
+  }
+  //----------------------------------------------------------------------------
+
+  //charger les images interrogations dans un tableau
+  setTimeout(() => {
+    for (let i = 0; i <= 11; i++) {
+      tabImagesQuestion.push(document.getElementById(`${i}`));
+    }
+    //ajouter évènement sur toute les cartes
+    for (const image of tabImagesQuestion) {
+      image.addEventListener("click", turnImage);
+    }
+  }, 560)
+  //----------------------------------------------------------------------------
+}
+
 //mélanger le tableau d'images
 shuffle(tabImages);
 
@@ -40,7 +86,7 @@ function initGame() {
   }
   document.getElementById("tableGame").style.display = "flex";
   document.getElementById("victory").style.display = "none";
-  document.getElementById("startButton").style.display = "none";
+  document.getElementById("resetButton").style.display = "none";
   document.getElementById("playTitle").style.display = "flex";
   document.getElementById("rick").style.display = "none";
 }
@@ -49,10 +95,7 @@ const resetButton = document.getElementById("resetButton");
 resetButton.addEventListener("click", initGame)
 
 //-----------------------------------------------------------------------------------------------------------
-//ajouter évènement sur toute les cartes
-for (const image of tabImagesQuestion) {
-  image.addEventListener("click", turnImage);
-}
+
 //-----------------------------------
 function turnImage() {
   let imgId = this.getAttribute("id");

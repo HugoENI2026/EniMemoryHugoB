@@ -121,6 +121,7 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   width: 14vw;
 }
 
+
 #tableGame {
   margin-top: 6vh;
   display: flex;
@@ -186,6 +187,24 @@ img {
   padding: 10px;
   border: goldenrod 3px solid;
   border-radius: 10px;
+}
 
 
+
+/*TEST*/
+@keyframes apparitionRotate {
+  from {
+    transform: scale(0.5) rotate(-360deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.question {
+  /* Application de l'animation */
+  animation: apparitionRotate 0.5s;
 }

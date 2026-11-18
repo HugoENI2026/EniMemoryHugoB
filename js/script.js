@@ -88,14 +88,23 @@ function initGame() {
   returnTabs.length = 0;
   tabImagesFound.length = 0;
   initMemoryTable(3, 4);
+
   document.getElementById("victory").style.display = "none";
   document.getElementById("resetButton").style.display = "none";
   document.getElementById("playTitle").style.display = "flex";
   document.getElementById("rick").style.display = "none";
+  document.getElementById("spaceReset").style.display = "none";
 }
 
 const resetButton = document.getElementById("resetButton");
 resetButton.addEventListener("click", initGame);
+
+//ajouter évenement sur barre d'espace
+document.addEventListener("keydown", (event) => {
+  if (event.code === "Space") {
+    initGame();
+  }
+});
 
 //-----------------------------------------------------------------------------------------------------------
 
@@ -108,6 +117,7 @@ function turnImage() {
   //-----------------------------------------------------------
   // condition pour continuer de retourner des cartes
   if (returnTabs.length < 2 && this.src.includes("question")) {
+    this.style.animation = "returnCard 0.65s";
     this.setAttribute(
       "src",
       `../assets/ressources/memory-legume/${tabImages[Number(imgId)]}.svg`,
@@ -136,20 +146,25 @@ function turnImage() {
       //lancer un chrono avant de retourner les cartes selectionées
       setTimeout(() => {
         for (let i = 0; i <= 1; i++) {
+          document.getElementById(`${returnTabs[i]}`).style.animation =
+            "returnCard2 0.65s";
           document.getElementById(`${returnTabs[i]}`).src =
             "../assets/ressources/question.svg";
         }
         returnTabs.length = 0;
-      }, 1000);
+      }, 1800);
     }
     //--------------------------------------------------
 
     if (tabImagesFound.length === tabImages.length) {
-      document.getElementById("tableGame").style.display = "none";
-      document.getElementById("victory").style.display = "flex";
-      document.getElementById("resetButton").style.display = "flex";
-      document.getElementById("playTitle").style.display = "none";
-      document.getElementById("rick").style.display = "flex";
+      setTimeout(() => {
+        document.getElementById("tableGame").style.display = "none";
+        document.getElementById("victory").style.display = "flex";
+        document.getElementById("resetButton").style.display = "flex";
+        document.getElementById("playTitle").style.display = "none";
+        document.getElementById("rick").style.display = "flex";
+        document.getElementById("spaceReset").style.display = "flex";
+      }, 700);
     }
   }
 }

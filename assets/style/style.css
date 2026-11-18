@@ -123,6 +123,8 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   padding: 10px;
   border: goldenrod 3px solid;
   border-radius: 10px;
+  animation: apparitionRotate 0.5s;
+  box-shadow: 5px 5px 5px #9c724bdc;
 }
 
 #tableGame {
@@ -160,7 +162,7 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   display: none;
   color: goldenrod;
   font-size: 10em;
-  border: goldenrod solid 5px;
+  border: goldenrod double 5px;
   border-radius: 15px;
 }
 
@@ -185,11 +187,9 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   margin-top: -20px;
   display: none;
 }
-
-img {
+#spaceReset {
+  display: none;
 }
-
-/*TEST*/
 @keyframes apparitionRotate {
   from {
     transform: scale(0.2) rotate(-360deg);
@@ -202,9 +202,28 @@ img {
   }
 }
 
-.question {
-  /* Application de l'animation */
-  animation: apparitionRotate 0.5s;
+@keyframes returnCard {
+  from {
+    transform: scale(0.2) rotateY(-180deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes returnCard2 {
+  from {
+    transform: scale(0.2) rotateY(180deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
 }
 
 /*#confetti {

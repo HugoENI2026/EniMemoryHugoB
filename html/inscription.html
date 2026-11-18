@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../assets/style/style.css" />
+    <script src="../js/subscribe.js" defer></script>
   </head>
 
   <body>
@@ -31,7 +32,7 @@
         <p class="obligatoire champOblig subscribeInput">
           * Champs obligatoires
         </p>
-        <form>
+        <form action="" method="post">
           <div class="mb-3">
             <div class="subscribeInput">
               <label for="subPseudo" class="form-label"
@@ -44,7 +45,9 @@
                 aria-describedby="userNameHelp"
                 autofocus
                 required
+                pattern="[A-Za-Z]{3,}"
               />
+
               <div id="userNameHelp" class="form-text">
                 Minimum 3 caractères
               </div>
@@ -54,28 +57,31 @@
                 >Adresse Email <span class="obligatoire">*</span></label
               >
               <input
-                type="subEmail"
+                type="email"
                 class="form-control"
                 id="subEmail"
                 aria-describedby="emailHelp"
                 required
               />
-              <div id="emailHelp" class="form-text">
-                L'Email ne sera pas partagé avec des tiers
-              </div>
+              <div id="emailHelp" class="form-text">Email valide</div>
             </div>
             <div class="subscribeInput">
-              <label for="InputPassword" class="form-label"
+              <label for="inputPassword" class="form-label"
                 >Mot de passe <span class="obligatoire">*</span>
               </label>
               <input
                 type="password"
                 class="form-control"
-                id="InputPassword"
+                id="inputPassword"
                 required
               />
               <div id="pwHelp" class="form-text">
-                Au moins un symbole, un chiffre, et une lettre en majuscule.
+                <span id="characterLength">12 caractères min,</span>
+                <span id="symbol">un symbole,</span
+                ><span id="number"> un chiffre,</span
+                ><span id="upperCase"> une lettre en majuscule,</span
+                ><span id="lowerCase"> une lettre en minuscule,</span
+                ><span id="accent"> un accent.</span>
               </div>
             </div>
 
@@ -96,7 +102,14 @@
           </div>
 
           <div class="subscribeInput btnValidate">
-            <button type="submit" class="btn btn-success">Soumettre</button>
+            <button
+              id="validateBtn"
+              type="submit"
+              class="btn btn-success"
+              disabled
+            >
+              Soumettre
+            </button>
           </div>
         </form>
       </fieldset>

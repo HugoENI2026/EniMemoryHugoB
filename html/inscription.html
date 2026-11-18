@@ -1,123 +1,89 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>inscription</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../assets/style/style.css" />
-    <script src="../js/subscribe.js" defer></script>
-  </head>
 
-  <body>
-    <h1>ENI Memory</h1>
-    <nav class="nav nav-pills nav-justified">
-      <a class="nav-link" href="./index.html">Accueil</a>
-      <a class="nav-link" href="./jeux.html">Jeux</a>
-      <a class="nav-link" href="./compte.html">Compte</a>
-      <a class="nav-link" href="./connexion.html">Connexion</a>
-      <a class="nav-link active" aria-current="page" href="./inscription.html"
-        >Inscription</a
-      >
-    </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>inscription</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/style/style.css" />
+  <script src="../js/subscribe.js" defer></script>
+</head>
 
-    <section class="subscribeField">
-      <h2>Inscrivez vous !</h2>
-      <fieldset>
-        <p class="obligatoire champOblig subscribeInput">
-          * Champs obligatoires
-        </p>
-        <form action="" method="post">
-          <div class="mb-3">
-            <div class="subscribeInput">
-              <label for="subPseudo" class="form-label"
-                >Pseudo <span class="obligatoire">*</span></label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="subPseudo"
-                aria-describedby="userNameHelp"
-                autofocus
-                required
-                pattern="[A-Za-Z]{3,}"
-              />
+<body>
+  <h1>ENI Memory</h1>
+  <nav class="nav nav-pills nav-justified">
+    <a class="nav-link" href="./index.html">Accueil</a>
+    <a class="nav-link" href="./jeux.html">Jeux</a>
+    <a class="nav-link" href="./compte.html">Compte</a>
+    <a class="nav-link" href="./connexion.html">Connexion</a>
+    <a class="nav-link active" aria-current="page" href="./inscription.html">Inscription</a>
+  </nav>
 
-              <div id="userNameHelp" class="form-text">
-                Minimum 3 caractères
-              </div>
-            </div>
-            <div class="subscribeInput">
-              <label for="subEmail" class="form-label"
-                >Adresse Email <span class="obligatoire">*</span></label
-              >
-              <input
-                type="email"
-                class="form-control"
-                id="subEmail"
-                aria-describedby="emailHelp"
-                required
-              />
-              <div id="emailHelp" class="form-text">Email valide</div>
-            </div>
-            <div class="subscribeInput">
-              <label for="inputPassword" class="form-label"
-                >Mot de passe <span class="obligatoire">*</span>
-              </label>
-              <input
-                type="password"
-                class="form-control"
-                id="inputPassword"
-                required
-              />
-              <div id="pwHelp" class="form-text">
-                <span id="characterLength">12 caractères min,</span>
-                <span id="symbol">un symbole,</span
-                ><span id="number"> un chiffre,</span
-                ><span id="upperCase"> une lettre en majuscule,</span
-                ><span id="lowerCase"> une lettre en minuscule,</span
-                ><span id="accent"> un accent.</span>
-              </div>
-            </div>
+  <section class="subscribeField">
+    <h2>Inscrivez vous !</h2>
+    <fieldset>
+      <p class="obligatoire champOblig subscribeInput">
+        * Champs obligatoires
+      </p>
+      <form action="" method="post">
+        <div class="mb-3">
+          <div class="subscribeInput">
+            <label for="subPseudo" class="form-label">Pseudo <span class="obligatoire">*</span></label>
+            <input type="text" class="form-control" id="subPseudo" aria-describedby="userNameHelp" autofocus required
+              pattern="[A-Za-Z]{3,}" />
 
-            <div class="subscribeInput">
-              <label for="verifInputPassword" class="form-label"
-                >Vérifier mot de passe <span class="obligatoire">*</span>
-              </label>
-              <input
-                type="password"
-                class="form-control"
-                id="verifInputPassword"
-                required
-              />
-              <div id="verifPwHelp" class="form-text">
-                Retapez votre mot passe afin de le vérifier
-              </div>
+            <div id="userNameHelp" class="form-text">
+              Minimum 3 caractères
             </div>
           </div>
-
-          <div class="subscribeInput btnValidate">
-            <button
-              id="validateBtn"
-              type="submit"
-              class="btn btn-success"
-              disabled
-            >
-              Soumettre
-            </button>
+          <div class="subscribeInput">
+            <label for="subEmail" class="form-label">Adresse Email <span class="obligatoire">*</span></label>
+            <input type="email" class="form-control" id="subEmail" aria-describedby="emailHelp" required />
+            <div id="emailHelp" class="form-text">Email valide</div>
           </div>
-        </form>
-      </fieldset>
-    </section>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+          <div class="subscribeInput">
+            <label for="inputPassword" class="form-label">Mot de passe <span class="obligatoire">*</span>
+            </label>
+            <input type="password" class="form-control" id="inputPassword" required />
+            <div id="pwHelp" class="form-text">
+              <span id="characterLength">12 caractères min,</span>
+              <span id="symbol">un symbole,</span><span id="number"> un chiffre,</span><span id="upperCase"> une lettre
+                en majuscule,</span><span id="lowerCase"> une lettre en minuscule,</span><span id="accent"> un
+                accent.</span>
+            </div>
+          </div>
+          <div class="pwStrength">
+            <div id="step1">Mauvais</div>
+            <div id="step2">Moyen</div>
+            <div id="step3">Correct</div>
+            <div id="step4">Bon</div>
+            <div id="step5">Très bon</div>
+          </div>
+
+
+          <div class="subscribeInput">
+            <label for="verifInputPassword" class="form-label">Vérifier mot de passe <span class="obligatoire">*</span>
+            </label>
+            <input type="password" class="form-control" id="verifInputPassword" required />
+            <div id="verifPwHelp" class="form-text">
+              Retapez votre mot passe afin de le vérifier
+            </div>
+          </div>
+        </div>
+
+        <div class="subscribeInput btnValidate">
+          <button id="validateBtn" type="submit" class="btn btn-success" disabled>
+            Soumettre
+          </button>
+        </div>
+      </form>
+    </fieldset>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

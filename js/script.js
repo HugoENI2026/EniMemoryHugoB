@@ -7,28 +7,35 @@ const tabImages = [1, 2, 3, 4, 5, 6];
 tabImages.push(...tabImages);
 
 //----------------------------------------------------------------------------
-initMemoryTable(3, 4)
-
+initMemoryTable(3, 4);
 
 //----------------------------------------------------------------------------
-// TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
+
 function initMemoryTable(line, column) {
+  if (document.getElementById("tableGame")) {
+    for (const image of tabImagesQuestion) {
+      image.removeEventListener("click", turnImage);
+    }
+    document.getElementById("tableGame").remove();
+    tabImagesQuestion.length = 0;
+  }
+  //------------------------------------------------------------
+  // construction du tableau
   const section = document.createElement("section");
-  section.id = "tableGame"
-  document.getElementById("section").appendChild(section)
+  section.id = "tableGame";
+  document.getElementById("section").appendChild(section);
 
-  const table = document.createElement("table")
-  section.appendChild(table)
-
+  const table = document.createElement("table");
+  section.appendChild(table);
 
   let id = 0;
   for (let i = 0; i < line; i++) {
     const tr = document.createElement("tr");
-    table.appendChild(tr)
+    table.appendChild(tr);
 
     for (let j = 0; j < column; j++) {
       const index = id;
-      id++
+      id++;
       setTimeout(() => {
         const td = document.createElement("td");
         const img = document.createElement("img");
@@ -37,12 +44,12 @@ function initMemoryTable(line, column) {
         img.src = "../assets/ressources/question.svg";
         img.id = String(index);
 
-        tr.appendChild(td)
-        td.appendChild(img)
-      }, 50 * index)
+        tr.appendChild(td);
+        td.appendChild(img);
+      }, 50 * index);
     }
   }
-  //----------------------------------------------------------------------------
+  //-------------------------------------------------------------
 
   //charger les images interrogations dans un tableau
   setTimeout(() => {
@@ -53,10 +60,9 @@ function initMemoryTable(line, column) {
     for (const image of tabImagesQuestion) {
       image.addEventListener("click", turnImage);
     }
-  }, 560)
-  //----------------------------------------------------------------------------
+  }, 1000);
 }
-
+//----------------------------------------------------------------------------
 //mélanger le tableau d'images
 shuffle(tabImages);
 
@@ -81,10 +87,7 @@ function initGame() {
   shuffle(tabImages);
   returnTabs.length = 0;
   tabImagesFound.length = 0;
-  for (let i = 0; i <= 11; i++) {
-    document.getElementById(`${i}`).setAttribute("src", "../assets/ressources/question.svg")
-  }
-  document.getElementById("tableGame").style.display = "flex";
+  initMemoryTable(3, 4);
   document.getElementById("victory").style.display = "none";
   document.getElementById("resetButton").style.display = "none";
   document.getElementById("playTitle").style.display = "flex";
@@ -92,7 +95,7 @@ function initGame() {
 }
 
 const resetButton = document.getElementById("resetButton");
-resetButton.addEventListener("click", initGame)
+resetButton.addEventListener("click", initGame);
 
 //-----------------------------------------------------------------------------------------------------------
 
@@ -128,7 +131,7 @@ function turnImage() {
     if (
       returnTabs.length === 2 &&
       document.getElementById(`${returnTabs[0]}`).src !==
-      document.getElementById(`${returnTabs[1]}`).src
+        document.getElementById(`${returnTabs[1]}`).src
     ) {
       //lancer un chrono avant de retourner les cartes selectionées
       setTimeout(() => {
@@ -150,7 +153,3 @@ function turnImage() {
     }
   }
 }
-
-
-
-

@@ -99,6 +99,7 @@ h2 {
 }
 
 .nav {
+  z-index: 10;
   --bs-nav-link-color: aliceblue;
   --bs-nav-link-hover-color: black;
 }
@@ -119,8 +120,10 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   margin: 15px;
   height: 14vh;
   width: 14vw;
+  padding: 10px;
+  border: goldenrod 3px solid;
+  border-radius: 10px;
 }
-
 
 #tableGame {
   margin-top: 6vh;
@@ -184,17 +187,12 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
 }
 
 img {
-  padding: 10px;
-  border: goldenrod 3px solid;
-  border-radius: 10px;
 }
-
-
 
 /*TEST*/
 @keyframes apparitionRotate {
   from {
-    transform: scale(0.5) rotate(-360deg);
+    transform: scale(0.2) rotate(-360deg);
     opacity: 0;
   }
 
@@ -208,3 +206,10 @@ img {
   /* Application de l'animation */
   animation: apparitionRotate 0.5s;
 }
+
+/*#confetti {
+  z-index: 100000000;
+
+  width: 1600px;
+  position: fixed;
+}*/

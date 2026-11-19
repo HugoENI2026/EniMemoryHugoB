@@ -1,6 +1,6 @@
 //-----------------------------------------------------------------------------------------------------------
 const line = 3;
-const column = 4
+const column = 4;
 const tabImagesQuestion = [];
 const tabImages = [1, 2, 3, 4, 5, 6];
 
@@ -20,7 +20,7 @@ function initMemoryTable(line, column) {
     document.getElementById("tableGame").remove();
     tabImagesQuestion.length = 0;
   }
-  // construction du tableau 
+  // construction du tableau
   const section = document.createElement("section");
   section.id = "tableGame";
   document.getElementById("section").appendChild(section);
@@ -60,8 +60,7 @@ function initMemoryTable(line, column) {
     for (const image of tabImagesQuestion) {
       image.addEventListener("click", turnImage);
     }
-    document.addEventListener("keydown", keyboardEvent)
-
+    document.addEventListener("keydown", keyboardEvent);
   }, 600);
 }
 //----------------------------------------------------------------------------
@@ -86,7 +85,7 @@ const tabImagesFound = [];
 
 //-----------------------------------------------------------------------------------------------------------
 function initGame() {
-  document.removeEventListener("keydown", keyboardEvent)
+  document.removeEventListener("keydown", keyboardEvent);
   shuffle(tabImages);
   returnTabs.length = 0;
   tabImagesFound.length = 0;
@@ -106,10 +105,7 @@ function keyboardEvent(event) {
     initGame();
   }
 }
-//ajouter évenement sur barre d'espace 
-
-
-
+//ajouter évenement sur barre d'espace
 
 //-----------------------------------------------------------------------------------------------------------
 
@@ -146,7 +142,7 @@ function turnImage() {
     if (
       returnTabs.length === 2 &&
       document.getElementById(`${returnTabs[0]}`).src !==
-      document.getElementById(`${returnTabs[1]}`).src
+        document.getElementById(`${returnTabs[1]}`).src
     ) {
       //lancer un chrono avant de retourner les cartes selectionées
       setTimeout(() => {

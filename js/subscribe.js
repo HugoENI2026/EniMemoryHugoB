@@ -1,3 +1,9 @@
+//________________________________________________________________________________________________
+//                                            FONCTIONS
+//________________________________________________________________________________________________
+
+const validateBtn = document.getElementById("validateBtn");
+
 function testCondition(boolean, variable) {
   if (boolean) {
     variable.style.color = "green";
@@ -75,12 +81,6 @@ const number = document.getElementById("number");
 const characterLength = document.getElementById("characterLength");
 const accent = document.getElementById("accent");
 const symbol = document.getElementById("symbol");
-const validateBtn = document.getElementById("validateBtn");
-
-
-
-
-
 
 inputPassword.addEventListener("input", () => {
   testCondition(/[a-z]/.test(inputPassword.value), lowerCase);
@@ -92,25 +92,24 @@ inputPassword.addEventListener("input", () => {
   testValidateButton();
 
   if (inputPassword.value.length < 3) {
-    step0()
+    step0();
   }
   if (inputPassword.value.length >= 3) {
-    step1()
+    step1();
   }
 
   if (inputPassword.value.length >= 6) {
-    step2()
+    step2();
   }
   if (inputPassword.value.length >= 9) {
-    step3()
+    step3();
   }
   if (inputPassword.value.length >= 12) {
-    step4()
+    step4();
   }
   if (inputPassword.value.length >= 15) {
-    step5()
+    step5();
   }
-
 });
 //________________________________________________________________________________________________
 //                                            PSEUDO
@@ -121,7 +120,6 @@ const pseudoLength = document.getElementById("userNameHelp");
 inputPseudo.addEventListener("input", () => {
   testCondition(inputPseudo.value.length >= 3, pseudoLength);
   testValidateButton();
-
 });
 
 //________________________________________________________________________________________________
@@ -131,7 +129,11 @@ const inputEmail = document.getElementById("subEmail");
 const email = document.getElementById("emailHelp");
 
 inputEmail.addEventListener("input", () => {
-  testCondition(inputEmail.value.includes("@"), email);
+  testCondition(
+    inputEmail.value.includes("@") &&
+      (inputEmail.value.includes(".fr") || inputEmail.value.includes(".com")),
+    email,
+  );
   testValidateButton();
 });
 
@@ -147,3 +149,53 @@ inputVerifPw.addEventListener("input", () => {
     testValidateButton();
   }
 });
+
+//________________________________________________________________________________________________
+//                               ENVOI DES INFOS DANS LE LOCAL STORAGE
+//                                    ENREGISTREMENT DU USER
+//________________________________________________________________________________________________
+
+validateBtn.addEventListener("click", register);
+
+function register(e) {
+  e.preventDefault();
+  let tabUserInfos = [];
+  if (localStorage.getItem("users")) {
+    tabUserInfos = JSON.parse(localStorage.getItem("users"));
+    if (verifPseudoExist(tabUserInfos)) {
+      alert("Ce pseudo est déjà pris, veuillez en saisir un autre");
+    } else {
+      tabUserInfos.push([
+        {
+          pseudo: inputPseudo.value,
+          email: inputEmail.value,
+          password: inputPassword.value,
+        },
+      ]);
+      localStorage.setItem("users", JSON.stringify(tabUserInfos));
+      window.location.replace("./connexion.html");
+    }
+  } else {
+    tabUserInfos.push([
+      {
+        pseudo: inputPseudo.value,
+        email: inputEmail.value,
+        password: inputPassword.value,
+      },
+    ]);
+    localStorage.setItem("users", JSON.stringify(tabUserInfos));
+    window.location.replace("./connexion.html");
+  }
+}
+
+function verifPseudoExist(tabUserInfos) {
+  for (let i = 0; i < tabUserInfos.length; i++) {
+    if (tabUserInfos[i].pseudo === inputPseudo.value) {
+      return true;
+    }
+  }
+}
+
+//________________________________________________________________________________________________
+//                                        SE CONNECTER
+//________________________________________________________________________________________________

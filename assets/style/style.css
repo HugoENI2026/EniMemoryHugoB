@@ -21,6 +21,10 @@ fieldset {
   flex-direction: column;
   align-content: center;
 }
+.form-control:focus {
+  border: color aliceblue;
+  box-shadow: 0 0 0 0.15rem rgb(155, 189, 219);
+}
 
 .subscribeField {
   display: flex;
@@ -129,7 +133,7 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
 }
 
 .question:hover {
-  transform: scale(1.05)
+  transform: scale(1.05);
 }
 
 #tableGame {
@@ -205,17 +209,13 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   position: relative;
   margin-left: 1vw;
   margin-right: 1vw;
-
-
 }
-
 
 #step1,
 #step2,
 #step3,
 #step4,
 #step5 {
-
   height: 3px;
   width: 7.5vw;
   border-radius: 20px;
@@ -225,7 +225,6 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   font-size: 0.8em;
   justify-content: center;
   margin-top: -5px;
-
 }
 
 #step1 {
@@ -237,7 +236,6 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   background-color: orange;
   box-shadow: 0px 1px 5px orange;
 }
-
 
 #step3 {
   background-color: yellow;
@@ -253,8 +251,6 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
   background-color: rgb(0, 174, 255);
   box-shadow: 0px 1px 5px rgb(0, 174, 255);
 }
-
-
 
 @keyframes apparitionRotate {
   from {

@@ -156,7 +156,9 @@ nav.nav.nav-pills.nav-justified .nav-link:hover {
 
 .compte {
   margin: 10px;
-  min-width: 250px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  width: 30vw;
 }
 
 .countField {

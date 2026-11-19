@@ -1,3 +1,12 @@
+if (sessionStorage.getItem("currentUser")) {
+  const user = JSON.parse(sessionStorage.getItem("currentUser"));
+
+  document.getElementById("playTitle").textContent =
+    `À vous de jouer ${user.pseudo} !`;
+} else {
+  document.getElementById("playTitle").textContent = `À vous de jouer !`;
+}
+
 //-----------------------------------------------------------------------------------------------------------
 const line = 3;
 const column = 4;

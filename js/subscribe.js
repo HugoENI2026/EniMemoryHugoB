@@ -165,24 +165,20 @@ function register(e) {
     if (verifPseudoExist(tabUserInfos)) {
       alert("Ce pseudo est déjà pris, veuillez en saisir un autre");
     } else {
-      tabUserInfos.push([
-        {
-          pseudo: inputPseudo.value,
-          email: inputEmail.value,
-          password: inputPassword.value,
-        },
-      ]);
+      tabUserInfos.push({
+        pseudo: inputPseudo.value,
+        email: inputEmail.value,
+        password: inputPassword.value,
+      });
       localStorage.setItem("users", JSON.stringify(tabUserInfos));
       window.location.replace("./connexion.html");
     }
   } else {
-    tabUserInfos.push([
-      {
-        pseudo: inputPseudo.value,
-        email: inputEmail.value,
-        password: inputPassword.value,
-      },
-    ]);
+    tabUserInfos.push({
+      pseudo: inputPseudo.value,
+      email: inputEmail.value,
+      password: inputPassword.value,
+    });
     localStorage.setItem("users", JSON.stringify(tabUserInfos));
     window.location.replace("./connexion.html");
   }
@@ -195,7 +191,3 @@ function verifPseudoExist(tabUserInfos) {
     }
   }
 }
-
-//________________________________________________________________________________________________
-//                                        SE CONNECTER
-//________________________________________________________________________________________________

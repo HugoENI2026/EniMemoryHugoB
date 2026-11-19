@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../assets/style/style.css" />
+    <script src="../js/connect.js" defer></script>
   </head>
 
   <body>
@@ -27,7 +28,7 @@
     <section class="subscribeField">
       <h2>Connectez vous !</h2>
       <fieldset class="connectField">
-        <form>
+        <form action="" method="">
           <div class="mb-3">
             <div class="subscribeInput">
               <label for="subPseudo" class="form-label">Pseudo</label>
@@ -48,12 +49,17 @@
               <input
                 type="password"
                 class="form-control"
-                id="InputPassword"
+                id="inputPasswordConnect"
                 required
               />
             </div>
             <div class="subscribeInput btnValidate">
-              <input type="button" value="Valider" class="btn btn-success" />
+              <input
+                id="btnConnect"
+                type="button"
+                value="Valider"
+                class="btn btn-success"
+              />
             </div>
           </div>
         </form>

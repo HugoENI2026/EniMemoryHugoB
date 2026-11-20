@@ -70,6 +70,11 @@ function initMemoryTable(line, column) {
       image.addEventListener("click", turnImage);
     }
     document.addEventListener("keydown", keyboardEvent);
+    attachTiltEffect();
+    /*  EN COURS
+    for (const image of tabImagesQuestion) {
+      image.addEventListener("mouseenter", sound);
+    }*/
   }, 600);
 }
 //----------------------------------------------------------------------------
@@ -178,3 +183,39 @@ function turnImage() {
     }
   }
 }
+function attachTiltEffect() {
+  const tiltCards = document.querySelectorAll(".question");
+
+  tiltCards.forEach(function (card) {
+    card.addEventListener("mousemove", function (e) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -20;
+      const rotateY = ((x - centerX) / centerX) * 20;
+
+      card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.10)`;
+      card.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 25px #9c724bdc`;
+    });
+
+    card.addEventListener("mouseleave", function () {
+      card.style.transform =
+        "perspective(600px) rotateX(0) rotateY(0) scale(1)";
+      card.style.boxShadow = "none";
+    });
+  });
+}
+
+/* EN COURS 
+function sound() {
+  const audio = new Audio("../assets/ressources/shining.mp3");
+  audio.play();
+  setInterval(() => {
+    audio.play;
+  }, 6300);
+  addEventListener("mouseout", () => {
+    return;
+  });
+}*/
